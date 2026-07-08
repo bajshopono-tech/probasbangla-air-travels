@@ -1,0 +1,6 @@
+{
+  "name": "Probasbangla Air Travels",
+  "description": "A premium Bengali-Arabic themed travel agency portal for expats, specializing in air ticketing, visa processing, Hajj & Umrah packages, NID, and other travel essentials.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
