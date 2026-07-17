@@ -310,9 +310,38 @@ export default function Visa() {
               <span className="text-[10px] font-bold text-[#C9A84C] tracking-wider uppercase block mb-0.5">ডিজিটাল ভিসা প্রসেসিং পোর্টাল</span>
               <h3 className="font-bold text-lg text-slate-800">ভিসার আবেদন পূরণ করুন</h3>
               
-              <div className="p-3 bg-[#FFFFFF] rounded-xl border border-[#C9A84C]/10 text-xs text-slate-700 mt-2.5">
-                দেশ: <span className="font-bold text-slate-800">{VISA_DATA[selectedCountry].country}</span><br />
-                ক্যাটেগরি: <span className="font-bold text-amber-700">{visaTypeSelected}</span>
+              <div className="p-3.5 bg-white rounded-2xl border border-[#C9A84C]/20 text-xs text-slate-700 mt-3 space-y-3 shadow-inner">
+                {/* Country auto selector dropdown */}
+                <div>
+                  <label className="text-slate-600 font-semibold text-[10px] uppercase block mb-1">দেশ (Country Name) *</label>
+                  <select
+                    value={selectedCountry}
+                    onChange={(e) => setSelectedCountry(e.target.value)}
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-2.5 py-1.5 text-xs text-slate-800 font-bold focus:outline-none focus:border-[#C9A84C] cursor-pointer"
+                  >
+                    {Object.keys(VISA_DATA).map((countryKey) => (
+                      <option key={countryKey} value={countryKey}>
+                        {VISA_DATA[countryKey].flag} {VISA_DATA[countryKey].country}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                {/* Visa type / category dropdown */}
+                <div>
+                  <label className="text-slate-600 font-semibold text-[10px] uppercase block mb-1">ক্যাটেগরি ও ফি (Category & Fee) *</label>
+                  <select
+                    value={visaTypeSelected}
+                    onChange={(e) => setVisaTypeSelected(e.target.value)}
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-2.5 py-1.5 text-xs text-amber-800 font-bold focus:outline-none focus:border-[#C9A84C] cursor-pointer"
+                  >
+                    {VISA_DATA[selectedCountry]?.types.map((type: any, idx: number) => (
+                      <option key={idx} value={type.name}>
+                        {type.name} ({type.price})
+                      </option>
+                    ))}
+                  </select>
+                </div>
               </div>
             </div>
 

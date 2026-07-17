@@ -40,6 +40,8 @@ import AIChatbot from "./AIChatbot";
 import { useLanguage } from "../context/LanguageContext";
 import ServiceVideoAdPlayer from "./ServiceVideoAdPlayer";
 import FAQs from "./FAQs";
+import Testimonials from "./Testimonials";
+import QuickContact from "./QuickContact";
 
 // Icons specifically for the 17 services
 import { 
@@ -944,6 +946,12 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* 5.5 Premium Customer Testimonials Section */}
+      <Testimonials />
+
+      {/* 5.8 Quick Contact Form Section */}
+      <QuickContact />
 
       {/* 6. FAQs Accordion Section */}
       <FAQs />
